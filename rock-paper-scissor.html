@@ -2,64 +2,95 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .button{
-            background-color: #901E3E;
-            color: white;
-            margin: 100px;
-            height: 200px;
-            width: 200px;
-            font-size: xx-large;
-        }
-        body{
-            background-color: #511D43;
-        }
-        #result{
-            font-size: 50px;
-            color:rgb(168, 208, 244)
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #4888d6, #65c4f4, #75def8);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    .button {
+      background-color: #ffffff22;
+      color: white;
+      margin: 20px;
+      height: 150px;
+      width: 150px;
+      font-size: 1.5em;
+      border: 3px solid white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ffffff55;
+      transform: scale(1.1);
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 1.8em;
+      color: #fffde7;
+      background-color: #00000055;
+      padding: 20px;
+      border-radius: 12px;
+      display: none;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
+
 <body>
-    <button class="button" onclick='playGame("Rock")'>Rock</button>
-    <button class="button"onclick='playGame("Paper")'>Paper</button>
-    <button class="button" onclick='playGame("Scissor")'>Scissor</button>
-    <p id="result"></p>
-    <script>
-       function getComputerChoice(){
-        let number=Math.random();
-        let computerChoice='';
-        if(number>0&&number<1/3){
-            computerChoice="Rock";
-            
-        }
-        else if(number>=1/3&&number<2/3){
-            computerChoice="Paper";
-        }
-        else{
-            computerChoice="Scissor";
-        }
-        return computerChoice;
-       }
-       function playGame(userChoice){
-        let computerChoice=getComputerChoice();
-        if(computerChoice==userChoice){
-            result="Tie";
-        }
-        else if(computerChoice=="Rock"&&userChoice=="Scissor"
-        ||computerChoice=="Scissor"&&userChoice=="Paper"
-        ||computerChoice=="Paper"&&userChoice=="Rock"){
-            result="Lose";
-        }
-        else{
-            result="Win";
-        }
-        document.getElementById("result").textContent=`You chose ${userChoice}. Computer chose ${computerChoice}. Result is ${result}`;
-       }
-    </script>
+
+  <h1>🎮 Rock Paper Scissors</h1>
+
+  <button class="button" onclick='playGame("Rock")'>🪨 Rock</button>
+  <button class="button" onclick='playGame("Paper")'>📄 Paper</button>
+  <button class="button" onclick='playGame("Scissor")'>✂️ Scissors</button>
+
+  <p id="result"></p>
+
+  <script>
+    function getComputerChoice() {
+      let number = Math.random();
+      if (number < 1 / 3) return "Rock";
+      else if (number < 2 / 3) return "Paper";
+      else return "Scissor";
+    }
+
+    function playGame(userChoice) {
+      const computerChoice = getComputerChoice();
+      let result = "";
+
+      if (computerChoice === userChoice) {
+        result = "🤝 It's a Tie!";
+      } else if (
+        (computerChoice === "Rock" && userChoice === "Scissor") ||
+        (computerChoice === "Scissor" && userChoice === "Paper") ||
+        (computerChoice === "Paper" && userChoice === "Rock")
+      ) {
+        result = "❌ You Lose!";
+      } else {
+        result = "✅ You Win!";
+      }
+
+      const resultBox = document.getElementById("result");
+      resultBox.textContent = `You chose ${userChoice}. Computer chose ${computerChoice}. ${result}`;
+      resultBox.style.display = "inline-block"; 
+    }
+  </script>
 </body>
 
 </html>
