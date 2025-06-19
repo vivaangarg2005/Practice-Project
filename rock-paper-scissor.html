@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            background-color: #901E3E;
+            color: white;
+            margin: 100px;
+            height: 200px;
+            width: 200px;
+            font-size: xx-large;
+        }
+        body{
+            background-color: #511D43;
+        }
+        #result{
+            font-size: 50px;
+            color:rgb(168, 208, 244)
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick='playGame("Rock")'>Rock</button>
+    <button class="button"onclick='playGame("Paper")'>Paper</button>
+    <button class="button" onclick='playGame("Scissor")'>Scissor</button>
+    <p id="result"></p>
+    <script>
+       function getComputerChoice(){
+        let number=Math.random();
+        let computerChoice='';
+        if(number>0&&number<1/3){
+            computerChoice="Rock";
+            
+        }
+        else if(number>=1/3&&number<2/3){
+            computerChoice="Paper";
+        }
+        else{
+            computerChoice="Scissor";
+        }
+        return computerChoice;
+       }
+       function playGame(userChoice){
+        let computerChoice=getComputerChoice();
+        if(computerChoice==userChoice){
+            result="Tie";
+        }
+        else if(computerChoice=="Rock"&&userChoice=="Scissor"
+        ||computerChoice=="Scissor"&&userChoice=="Paper"
+        ||computerChoice=="Paper"&&userChoice=="Rock"){
+            result="Lose";
+        }
+        else{
+            result="Win";
+        }
+        document.getElementById("result").textContent=`You chose ${userChoice}. Computer chose ${computerChoice}. Result is ${result}`;
+       }
+    </script>
+</body>
+
+</html>
