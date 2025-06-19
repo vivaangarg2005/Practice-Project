@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: #00f7ff;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        input,
+        button {
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+
+        input {
+            width: 300px;
+        }
+
+        button {
+            background: #ff0080;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff5ec4;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #00ffcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎯 Guess the Number (1 - 100)</h1>
+    <input type="number" id="userInput" placeholder="Enter your guess here" />
+    <button onclick="handleGuess()">Submit</button>
+    <button onclick="resetGame()">🔁 Play Again</button>
+
+    <div id="message"></div>
+
+    <script>
+        let computerChoice = Math.floor(Math.random() * 100) + 1;
+        let guesses = 10;
+        document.getElementById("userInput").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                handleGuess();
+            }
+        });
+
+
+        function handleGuess() {
+            const inputBox = document.getElementById("userInput");
+            const number = parseInt(inputBox.value);
+            const message = document.getElementById("message");
+
+            if (isNaN(number) || number < 1 || number > 100) {
+                message.textContent = "❌ Please enter a valid number between 1 and 100.";
+                return;
+            }
+
+            guesses--;
+
+            if (number === computerChoice) {
+                message.innerHTML = `🎉 You guessed it right! The number was ${computerChoice}. Attempts left: ${guesses}`;
+                disableGame();
+            } else if (number > computerChoice) {
+                message.textContent = `📉 Too High! Attempts left: ${guesses}`;
+            } else {
+                message.textContent = `📈 Too Low! Attempts left: ${guesses}`;
+            }
+
+            if (guesses === 0 && number !== computerChoice) {
+                message.textContent = `💀 You lost! The number was ${computerChoice}.`;
+                disableGame();
+            }
+
+            inputBox.value = "";
+        }
+
+        function disableGame() {
+            document.getElementById("userInput").disabled = true;
+        }
+
+        function resetGame() {
+            computerChoice = Math.floor(Math.random() * 100) + 1;
+            guesses = 10;
+            document.getElementById("userInput").disabled = false;
+            document.getElementById("userInput").value = "";
+            document.getElementById("message").textContent = "";
+        }
+    </script>
+
+</body>
+
+</html>
