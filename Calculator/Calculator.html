@@ -1,147 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-            padding-top: 2rem;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: white;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        .Calculator {
-            height: auto;
-            width: 300px;
-            border: 2px solid black;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px;
-            margin: auto;
-            background-color: black;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-        }
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
 
-        input {
-            width: 100%;
-            height: 4rem;
-            background-color: black;
-            border: none;
-            color: white;
-            font-size: 2.5rem;
-            text-align: right;
-            margin-bottom: 10px;
-        }
+    p {
+      font-weight: bold;
+      font-size: large;
+    }
 
-        input:focus {
-            outline: none;
-        }
+    .Calculator {
+      height: 500px;
+      width: 300px;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: black;
+      border-radius: 10px;
+    }
 
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+    button {
+      border-radius: 50%;
+      height: 4rem;
+      width: 4rem;
+      margin: 3px;
+      border: none;
+      font-size: larger;
+      background-color: #a6a6a6;
+    }
 
-        button {
-            border-radius: 50%;
-            height: 4rem;
-            width: 4rem;
-            margin: 3px;
-            border: none;
-            font-size: larger;
-            background-color: #a6a6a6;
-            cursor: pointer;
-        }
+    button:hover {
+      background-color: #747373;
+    }
 
-        button:hover {
-            background-color: #747373;
-        }
+    #zero {
+      width: 8.1rem;
+      border-radius: 50px;
+    }
 
-        #zero {
-            width: 8.1rem;
-            border-radius: 50px;
-        }
+    .orange {
+      background-color: #ff9501;
+      color: white;
+    }
 
-        .orange {
-            background-color: #ff9501;
-            color: white;
-        }
+    .orange:hover {
+      background-color: #ff6f01;
+    }
 
-        .orange:hover {
-            background-color: #ff6f01;
-        }
+    .dark-gray {
+      background-color: #333333;
+      color: white;
+    }
 
-        .dark-gray {
-            background-color: #333333;
-            color: white;
-        }
+    .dark-gray:hover {
+      background-color: #6f6e6e;
+    }
 
-        .dark-gray:hover {
-            background-color: #6f6e6e;
-        }
-    </style>
+    input {
+      width: 100%;
+      height: 4rem;
+      background-color: black;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      text-align: right;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    
+    #toggleDarkMode {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    #moon-dark {
+      display: none;
+    }
+
+    body.dark-mode #moon-light {
+      display: none;
+    }
+
+    body.dark-mode #moon-dark {
+      display: inline;
+    }
+  </style>
 </head>
 
 <body>
-    <p><strong>Welcome To VG Calculator</strong></p>
-    <div class="Calculator">
-        <input type="text" id="numberInput" readonly>
+  
+  <img
+    id="toggleDarkMode"
+    onclick="toggleDarkMode()"
+    alt="Toggle Dark Mode"
+    src="https://img.icons8.com/?size=100&id=45474&format=png&color=000000"
+    id="moon-light"
+  />
+  <img
+    id="toggleDarkMode"
+    onclick="toggleDarkMode()"
+    alt="Toggle Dark Mode"
+    src="https://img.icons8.com/?size=100&id=45474&format=png&color=FFFFFF"
+    id="moon-dark"
+  />
 
-        <button onclick="clearInput()">AC</button>
-        <button onclick="deleteInput()">DEL</button>
-        <button onclick="insertNumber('%')">%</button>
-        <button onclick="insertNumber('/')" class="orange">/</button>
+  <p>Welcome To VG Calculator</p>
 
-        <button onclick="insertNumber('7')" class="dark-gray">7</button>
-        <button onclick="insertNumber('8')" class="dark-gray">8</button>
-        <button onclick="insertNumber('9')" class="dark-gray">9</button>
-        <button onclick="insertNumber('*')" class="orange">*</button>
+  <div class="Calculator">
+    <input type="text" id="numberInput" readonly />
+    <button onclick="clearInput()">AC</button>
+    <button onclick="deleteInput()">DEL</button>
+    <button onclick="insertNumber('%')">%</button>
+    <button onclick="insertNumber('/')" class="orange">/</button>
+    <button onclick="insertNumber('7')" class="dark-gray">7</button>
+    <button onclick="insertNumber('8')" class="dark-gray">8</button>
+    <button onclick="insertNumber('9')" class="dark-gray">9</button>
+    <button onclick="insertNumber('*')" class="orange">*</button>
+    <button onclick="insertNumber('4')" class="dark-gray">4</button>
+    <button onclick="insertNumber('5')" class="dark-gray">5</button>
+    <button onclick="insertNumber('6')" class="dark-gray">6</button>
+    <button onclick="insertNumber('-')" class="orange">-</button>
+    <button onclick="insertNumber('1')" class="dark-gray">1</button>
+    <button onclick="insertNumber('2')" class="dark-gray">2</button>
+    <button onclick="insertNumber('3')" class="dark-gray">3</button>
+    <button onclick="insertNumber('+')" class="orange">+</button>
+    <button onclick="insertNumber('0')" id="zero" class="dark-gray">0</button>
+    <button onclick="insertNumber('.')" class="dark-gray">.</button>
+    <button onclick="calculate()" class="orange">=</button>
+  </div>
 
-        <button onclick="insertNumber('4')" class="dark-gray">4</button>
-        <button onclick="insertNumber('5')" class="dark-gray">5</button>
-        <button onclick="insertNumber('6')" class="dark-gray">6</button>
-        <button onclick="insertNumber('-')" class="orange">-</button>
+  <script>
+    function insertNumber(num) {
+      const input = document.getElementById("numberInput");
+      input.value += num;
+    }
 
-        <button onclick="insertNumber('1')" class="dark-gray">1</button>
-        <button onclick="insertNumber('2')" class="dark-gray">2</button>
-        <button onclick="insertNumber('3')" class="dark-gray">3</button>
-        <button onclick="insertNumber('+')" class="orange">+</button>
+    function clearInput() {
+      document.getElementById("numberInput").value = "";
+    }
 
-        <button onclick="insertNumber('0')" id="zero" class="dark-gray">0</button>
-        <button onclick="insertNumber('.')" class="dark-gray">.</button>
-        <button onclick="calculate()" class="orange">=</button>
-    </div>
+    function deleteInput() {
+      const input = document.getElementById("numberInput");
+      input.value = input.value.slice(0, -1);
+    }
 
-    <script>
-        function insertNumber(num) {
-            const input = document.getElementById("numberInput");
-            input.value += num;
-        }
+    function calculate() {
+      const input = document.getElementById("numberInput");
+      try {
+        input.value = eval(input.value);
+      } catch (e) {
+        input.value = "Error";
+      }
+    }
 
-        function clearInput() {
-            document.getElementById("numberInput").value = '';
-        }
-
-        function deleteInput() {
-            const input = document.getElementById("numberInput");
-            input.value = input.value.slice(0, -1);
-        }
-
-        function calculate() {
-            const input = document.getElementById("numberInput");
-            try {
-                input.value = eval(input.value);
-            } catch (e) {
-                input.value = "Error";
-            }
-        }
-    </script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
-
 </html>
