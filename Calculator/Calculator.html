@@ -8,58 +8,24 @@
     <style>
         body {
             text-align: center;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding-top: 2rem;
         }
 
         .Calculator {
-            height: 500px;
+            height: auto;
             width: 300px;
-            border: 2px Solid black;
+            border: 2px solid black;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-wrap: wrap;
-            margin-left: auto;
-            margin-right: auto;
+            justify-content: center;
+            padding: 10px;
+            margin: auto;
             background-color: black;
             border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
         }
-
-        button {
-            border-radius: 50%;
-            height: 4rem;
-            width: 4rem;
-            margin: 3px;
-            border: none;
-            font-size: larger;
-            background-color: #a6a6a6;
-        }
-        button:hover{
-            background-color: #747373;
-        }
-
-        #zero {
-            width: 8.1rem;
-            border-radius: 50px;
-
-        }
-
-        .orange {
-            background-color: #ff9501;
-            color: white;
-        }
-        .orange:hover{
-            background-color: #ff6f01;
-        }
-
-        .dark-gray {
-            background-color: #333333;
-            color: white;
-        }
-        .dark-gray:hover{
-            background-color: #6f6e6e;
-            
-        }
-
 
         input {
             width: 100%;
@@ -69,6 +35,7 @@
             color: white;
             font-size: 2.5rem;
             text-align: right;
+            margin-bottom: 10px;
         }
 
         input:focus {
@@ -80,34 +47,75 @@
             -webkit-appearance: none;
             margin: 0;
         }
+
+        button {
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+            margin: 3px;
+            border: none;
+            font-size: larger;
+            background-color: #a6a6a6;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #747373;
+        }
+
+        #zero {
+            width: 8.1rem;
+            border-radius: 50px;
+        }
+
+        .orange {
+            background-color: #ff9501;
+            color: white;
+        }
+
+        .orange:hover {
+            background-color: #ff6f01;
+        }
+
+        .dark-gray {
+            background-color: #333333;
+            color: white;
+        }
+
+        .dark-gray:hover {
+            background-color: #6f6e6e;
+        }
     </style>
 </head>
 
 <body>
-    <p>Welcome To VG Calculator</p>
+    <p><strong>Welcome To VG Calculator</strong></p>
     <div class="Calculator">
-        <input type="text" id="numberInput "readonly >
+        <input type="text" id="numberInput" readonly>
+
         <button onclick="clearInput()">AC</button>
         <button onclick="deleteInput()">DEL</button>
         <button onclick="insertNumber('%')">%</button>
-        <button onclick="insertNumber('/')"  class="orange">/</button>
-        <button onclick="insertNumber('7')"  class="dark-gray">7</button>
-        <button onclick="insertNumber('8')"  class="dark-gray">8</button>
-        <button onclick="insertNumber('9')"  class="dark-gray">9</button>
-        <button onclick="insertNumber('*')"  class="orange">*</button>
-        <button onclick="insertNumber('4')"  class="dark-gray">4</button>
-        <button onclick="insertNumber('5')"  class="dark-gray">5</button>
-        <button onclick="insertNumber('6')"  class="dark-gray">6</button>
-        <button onclick="insertNumber('-')"  class="orange">-</button>
-        <button onclick="insertNumber('1')"  class="dark-gray">1</button>
-        <button onclick="insertNumber('2')"  class="dark-gray">2</button>
-        <button onclick="insertNumber('3')"  class="dark-gray">3</button>
-        <button onclick="insertNumber('+')"  class="orange">+</button>
+        <button onclick="insertNumber('/')" class="orange">/</button>
+
+        <button onclick="insertNumber('7')" class="dark-gray">7</button>
+        <button onclick="insertNumber('8')" class="dark-gray">8</button>
+        <button onclick="insertNumber('9')" class="dark-gray">9</button>
+        <button onclick="insertNumber('*')" class="orange">*</button>
+
+        <button onclick="insertNumber('4')" class="dark-gray">4</button>
+        <button onclick="insertNumber('5')" class="dark-gray">5</button>
+        <button onclick="insertNumber('6')" class="dark-gray">6</button>
+        <button onclick="insertNumber('-')" class="orange">-</button>
+
+        <button onclick="insertNumber('1')" class="dark-gray">1</button>
+        <button onclick="insertNumber('2')" class="dark-gray">2</button>
+        <button onclick="insertNumber('3')" class="dark-gray">3</button>
+        <button onclick="insertNumber('+')" class="orange">+</button>
+
         <button onclick="insertNumber('0')" id="zero" class="dark-gray">0</button>
-        <button onclick="insertNumber('.')"  class="dark-gray">.</button>
-        <button onclick="calculate()"  class="orange">=</button>
-
-
+        <button onclick="insertNumber('.')" class="dark-gray">.</button>
+        <button onclick="calculate()" class="orange">=</button>
     </div>
 
     <script>
@@ -115,14 +123,16 @@
             const input = document.getElementById("numberInput");
             input.value += num;
         }
+
         function clearInput() {
             document.getElementById("numberInput").value = '';
         }
-        function deleteInput() {
 
+        function deleteInput() {
             const input = document.getElementById("numberInput");
             input.value = input.value.slice(0, -1);
         }
+
         function calculate() {
             const input = document.getElementById("numberInput");
             try {
@@ -131,10 +141,7 @@
                 input.value = "Error";
             }
         }
-        
     </script>
-
-
 </body>
 
 </html>
