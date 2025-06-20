@@ -78,7 +78,7 @@
             guesses--;
 
             if (number === computerChoice) {
-                message.innerHTML = `🎉 You guessed it right! The number was ${computerChoice}. Attempts left: ${guesses}`;
+                message.textContent = `🎉 You guessed it right! The number was ${computerChoice}. Attempts left: ${guesses}`;
                 disableGame();
             } else if (number > computerChoice) {
                 message.textContent = `📉 Too High! Attempts left: ${guesses}`;
@@ -96,6 +96,8 @@
 
         function disableGame() {
             document.getElementById("userInput").disabled = true;
+            document.querySelector("button[onclick='handleGuess()']").disabled = true;
+
         }
 
         function resetGame() {
@@ -104,6 +106,8 @@
             document.getElementById("userInput").disabled = false;
             document.getElementById("message").textContent = "";
             document.getElementById("userInput").value = "";
+            document.querySelector("button[onclick='handleGuess()']").disabled = false;
+
         }
     </script>
 
