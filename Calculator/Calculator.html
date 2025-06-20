@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .Calculator {
+            height: 500px;
+            width: 300px;
+            border: 2px Solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        button {
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+            margin: 3px;
+            border: none;
+            font-size: larger;
+            background-color: #a6a6a6;
+        }
+        button:hover{
+            background-color: #747373;
+        }
+
+        #zero {
+            width: 8.1rem;
+            border-radius: 50px;
+
+        }
+
+        .orange {
+            background-color: #ff9501;
+            color: white;
+        }
+        .orange:hover{
+            background-color: #ff6f01;
+        }
+
+        .dark-gray {
+            background-color: #333333;
+            color: white;
+        }
+        .dark-gray:hover{
+            background-color: #6f6e6e;
+            
+        }
+
+
+        input {
+            width: 100%;
+            height: 4rem;
+            background-color: black;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            text-align: right;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Welcome To VG Calculator</p>
+    <div class="Calculator">
+        <input type="text" id="numberInput "readonly >
+        <button onclick="clearInput()">AC</button>
+        <button onclick="deleteInput()">DEL</button>
+        <button onclick="insertNumber('%')">%</button>
+        <button onclick="insertNumber('/')"  class="orange">/</button>
+        <button onclick="insertNumber('7')"  class="dark-gray">7</button>
+        <button onclick="insertNumber('8')"  class="dark-gray">8</button>
+        <button onclick="insertNumber('9')"  class="dark-gray">9</button>
+        <button onclick="insertNumber('*')"  class="orange">*</button>
+        <button onclick="insertNumber('4')"  class="dark-gray">4</button>
+        <button onclick="insertNumber('5')"  class="dark-gray">5</button>
+        <button onclick="insertNumber('6')"  class="dark-gray">6</button>
+        <button onclick="insertNumber('-')"  class="orange">-</button>
+        <button onclick="insertNumber('1')"  class="dark-gray">1</button>
+        <button onclick="insertNumber('2')"  class="dark-gray">2</button>
+        <button onclick="insertNumber('3')"  class="dark-gray">3</button>
+        <button onclick="insertNumber('+')"  class="orange">+</button>
+        <button onclick="insertNumber('0')" id="zero" class="dark-gray">0</button>
+        <button onclick="insertNumber('.')"  class="dark-gray">.</button>
+        <button onclick="calculate()"  class="orange">=</button>
+
+
+    </div>
+
+    <script>
+        function insertNumber(num) {
+            const input = document.getElementById("numberInput");
+            input.value += num;
+        }
+        function clearInput() {
+            document.getElementById("numberInput").value = '';
+        }
+        function deleteInput() {
+
+            const input = document.getElementById("numberInput");
+            input.value = input.value.slice(0, -1);
+        }
+        function calculate() {
+            const input = document.getElementById("numberInput");
+            try {
+                input.value = eval(input.value);
+            } catch (e) {
+                input.value = "Error";
+            }
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
