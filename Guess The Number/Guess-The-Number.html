@@ -64,7 +64,6 @@
             }
         });
 
-
         function handleGuess() {
             const inputBox = document.getElementById("userInput");
             const number = parseInt(inputBox.value);
@@ -81,9 +80,9 @@
                 message.textContent = `🎉 You guessed it right! The number was ${computerChoice}. Attempts left: ${guesses}`;
                 disableGame();
             } else if (number > computerChoice) {
-                message.textContent = `📉 Too High! Attempts left: ${guesses}`;
+                message.textContent = ` Too High! Attempts left: ${guesses}`;
             } else {
-                message.textContent = `📈 Too Low! Attempts left: ${guesses}`;
+                message.textContent = ` Too Low! Attempts left: ${guesses}`;
             }
 
             if (guesses === 0 && number !== computerChoice) {
