@@ -93,7 +93,6 @@
       margin: 0;
     }
 
-    
     #toggleDarkMode {
       position: absolute;
       top: 1rem;
@@ -118,8 +117,8 @@
 </head>
 
 <body>
-  
-<div id="toggleDarkMode" onclick="toggleDarkMode()" style="position: absolute; top: 1rem; right: 1rem; cursor: pointer;">
+
+<div id="toggleDarkMode" onclick="toggleDarkMode()">
   <img
     id="moon-light"
     alt="Toggle to Dark Mode"
@@ -136,58 +135,62 @@
   />
 </div>
 
-  <p>Welcome To VG Calculator</p>
+<p>Welcome To VG Calculator</p>
 
-  <div class="Calculator">
-    <input type="text" id="numberInput" readonly />
-    <button onclick="clearInput()">AC</button>
-    <button onclick="deleteInput()">DEL</button>
-    <button onclick="insertNumber('%')">%</button>
-    <button onclick="insertNumber('/')" class="orange">/</button>
-    <button onclick="insertNumber('7')" class="dark-gray">7</button>
-    <button onclick="insertNumber('8')" class="dark-gray">8</button>
-    <button onclick="insertNumber('9')" class="dark-gray">9</button>
-    <button onclick="insertNumber('*')" class="orange">*</button>
-    <button onclick="insertNumber('4')" class="dark-gray">4</button>
-    <button onclick="insertNumber('5')" class="dark-gray">5</button>
-    <button onclick="insertNumber('6')" class="dark-gray">6</button>
-    <button onclick="insertNumber('-')" class="orange">-</button>
-    <button onclick="insertNumber('1')" class="dark-gray">1</button>
-    <button onclick="insertNumber('2')" class="dark-gray">2</button>
-    <button onclick="insertNumber('3')" class="dark-gray">3</button>
-    <button onclick="insertNumber('+')" class="orange">+</button>
-    <button onclick="insertNumber('0')" id="zero" class="dark-gray">0</button>
-    <button onclick="insertNumber('.')" class="dark-gray">.</button>
-    <button onclick="calculate()" class="orange">=</button>
-  </div>
+<div class="Calculator">
+  <input type="text" id="numberInput" readonly />
+  <button onclick="clearInput()">AC</button>
+  <button onclick="deleteInput()">DEL</button>
+  <button onclick="insertNumber('%')">%</button>
+  <button onclick="insertNumber('/')" class="orange">/</button>
+  <button onclick="insertNumber('7')" class="dark-gray">7</button>
+  <button onclick="insertNumber('8')" class="dark-gray">8</button>
+  <button onclick="insertNumber('9')" class="dark-gray">9</button>
+  <button onclick="insertNumber('*')" class="orange">*</button>
+  <button onclick="insertNumber('4')" class="dark-gray">4</button>
+  <button onclick="insertNumber('5')" class="dark-gray">5</button>
+  <button onclick="insertNumber('6')" class="dark-gray">6</button>
+  <button onclick="insertNumber('-')" class="orange">-</button>
+  <button onclick="insertNumber('1')" class="dark-gray">1</button>
+  <button onclick="insertNumber('2')" class="dark-gray">2</button>
+  <button onclick="insertNumber('3')" class="dark-gray">3</button>
+  <button onclick="insertNumber('+')" class="orange">+</button>
+  <button onclick="insertNumber('0')" id="zero" class="dark-gray">0</button>
+  <button onclick="insertNumber('.')" class="dark-gray">.</button>
+  <button onclick="calculate()" class="orange">=</button>
+</div>
 
-  <script>
-    function insertNumber(num) {
-      const input = document.getElementById("numberInput");
-      input.value += num;
+
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.0/lib/browser/math.min.js"></script>
+
+<script>
+  function insertNumber(num) {
+    const input = document.getElementById("numberInput");
+    input.value += num;
+  }
+
+  function clearInput() {
+    document.getElementById("numberInput").value = "";
+  }
+
+  function deleteInput() {
+    const input = document.getElementById("numberInput");
+    input.value = input.value.slice(0, -1);
+  }
+
+  function calculate() {
+    const input = document.getElementById("numberInput");
+    try {
+      input.value = math.evaluate(input.value); 
+    } catch (e) {
+      input.value = "Error";
     }
+  }
 
-    function clearInput() {
-      document.getElementById("numberInput").value = "";
-    }
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+</script>
 
-    function deleteInput() {
-      const input = document.getElementById("numberInput");
-      input.value = input.value.slice(0, -1);
-    }
-
-    function calculate() {
-      const input = document.getElementById("numberInput");
-      try {
-        input.value = eval(input.value);
-      } catch (e) {
-        input.value = "Error";
-      }
-    }
-
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
 </body>
 </html>
