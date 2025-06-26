@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  font-family: Arial;
+  border:border-box;
+}
+
+body{
+  position: relative;
+  background-color: #f1f2f4;
+}
+
+
+.navbar {
+  display: flex;
+
+  height: 67px;
+  background-color: white;
+  color: black;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+select {
+  border: none;
+}
+
+.logo {
+  background-image: url("flipkart_logo.png");
+  height: 40px;
+  width: 98px;
+  background-size: contain;
+  margin-left: 60px;
+}
+
+.search_bar {
+  height: 40px;
+  width: 365px;
+  background-color: #f0f5ff;
+  display: flex;
+  align-items: center;
+}
+
+.search_logo {
+  color: rgba(87, 87, 87, 0.648);
+}
+input {
+  width: 340px;
+  background-color: #f0f5ff;
+  border: none;
+  font-size: 15px;
+}
+
+.main {
+  background-color: white;
+  height: 135px;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.main .image {
+  height: 64px;
+  width: 64px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 65px;
+  background-color: white;
+  font-weight: bold;
+}
+
+.image1 {
+  background-image: url("image1.webp");
+}
+.image2 {
+  background-image: url("image2.webp");
+}
+.image3 {
+  background-image: url("image3.webp");
+}
+.image4 {
+  background-image: url("image4.webp");
+}
+.image5 {
+  background-image: url("image5.webp");
+}
+.image6 {
+  background-image: url("image6.webp");
+}
+.image7 {
+  background-image: url("image7.webp");
+}
+.image8 {
+  background-image: url("image8.webp");
+}
+
+.second {
+  height: 170px;
+  background-color: white;
+  margin-top: 15px;
+  background-size: contain;
+  display: flex;
+  background-image: url("ss1.webp");
+}
+
+.product{
+
+  background-color: white;
+}
+
+.third{
+  display: flex;
+  height: 500px;
+ 
+  background-color: #f1f2f4;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+ 
+
+
+}
+.box{
+  height: 400px;
+  width: 380px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: white;
+  margin-top: 20px;
+
+  
+}
+
+.img{
+  display: flex;
+  height:150px;
+  width:150px;
+  border:1px solid #e7e7e7;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  padding-bottom: 20px;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 3px;
+  padding-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+
+}
+
+.i1{
+  background-image: url("i1.png");
+}
+.i2{
+  background-image: url("i2.png");
+}
+.i3{
+  background-image: url("i3.webp");
+}
+.i4{
+  background-image: url("i4.png");
+}
+.i5{
+  background-image: url("i5.webp");
+}
+.i6{
+  background-image: url("i6.png");
+}
+.i7{
+  background-image: url("i7.png");
+}
+.i8{
+  background-image: url("i8.webp");
+}
+.para{
+  color: #239244;
+  background-color: white;
+  font-weight: bold;
+}
+
+.footPanel{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  height:250px;
+  background-color: #172337;
+  color: white;
+}
+
+ul a{
+  display: block;
+  margin-top: 5px;
+}
+
+.footPanel p{
+  color: #878787;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.footPanel2{
+  height: 80px;
+  background-color: #172337;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  border-top: 1px solid #454d5e;
+}
+
