@@ -1,0 +1,102 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #3573b4, #1d4f91);
+
+  
+}
+
+h1 {
+  color: #f5f0cd;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.input-container {
+  display: flex;
+  background-color: #f1f2f4;
+  border-radius: 999px;
+  padding: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.4);
+  width: 500px;
+  max-width: 90%;
+}
+
+.input-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  background-color: #f1f2f4;
+  color: #333;
+}
+
+.input-container input::placeholder {
+  color: #888;
+}
+
+.input-container button {
+  background-color: #5c9ade;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-container button:hover {
+  background-color: #468cd5;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  width: 500px;
+  max-width: 90%;
+}
+
+li {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+li input[type="checkbox"] {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+li button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #f5567b;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+li button:hover {
+  transform: scale(1.2);
+}
+
+
