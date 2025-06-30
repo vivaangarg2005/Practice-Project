@@ -13,12 +13,10 @@ addbtn.addEventListener("click", () => {
     ListItem.style.justifyContent = "space-between";
     ListItem.style.gap = "10px";
 
-    // Task text element
     let taskSpan = document.createElement("span");
     taskSpan.textContent = taskText;
     taskSpan.style.flex = "1";
 
-    // Checkbox
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.className = "custom-checkbox";
@@ -26,7 +24,6 @@ addbtn.addEventListener("click", () => {
       taskSpan.style.textDecoration = checkBox.checked ? "line-through" : "none";
     });
 
-    // Delete button
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "❌";
     deleteBtn.style.marginLeft = "10px";
@@ -34,13 +31,11 @@ addbtn.addEventListener("click", () => {
       taskList.removeChild(ListItem);
     });
 
-    // Assemble list item
     ListItem.appendChild(checkBox);
     ListItem.appendChild(taskSpan);
     ListItem.appendChild(deleteBtn);
     taskList.appendChild(ListItem);
 
-    // Clear input
     input.value = "";
   }
 });
