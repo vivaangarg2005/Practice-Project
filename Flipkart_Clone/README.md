@@ -35,4 +35,4 @@ This project was created **solely for practice and learning purposes**. All prod
 
 ---
 
-**Made with ❤️ by [Your Name]**
+**Made with ❤️ by Vivaan Garg**
